@@ -1,7 +1,7 @@
 fun main() {
     println("Bem vindo ao Bytebank")
 
-    for (i in 5..1){
+    for (i in 5 downTo 1 step 2){
 
 
     val titular: String = "Alex $i"
