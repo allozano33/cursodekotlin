@@ -33,6 +33,16 @@ fun main() {
     println("sacando na conta da Fran")
     contaFran.saca(100.0)
     println(contaFran.saldo)
+
+    println("Transferencia da conta da Fran para o Alex ")
+
+    if (contaFran.transfere(500.0, contaAlex)){
+        println("Transferencia bem Sucedida")
+        }else {
+
+        println("Falha na Transferencia")
+    }
+
 }
 
 class Conta {
@@ -43,10 +53,20 @@ class Conta {
     fun deposita(valor: Double) {
         this.saldo += valor
     }
+
     fun saca(valor: Double) {
-        if (this.saldo >= valor){
+        if (this.saldo >= valor) {
             saldo -= valor
         }
+    }
+
+    fun transfere(valor: Double, destino: Conta): Boolean {
+        if (saldo >= valor) {
+            saldo -= valor
+            destino.saldo += valor
+            return true
+        }
+        return false
     }
 
     fun testaCopiasEReferencias() {
